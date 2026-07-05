@@ -1,0 +1,22 @@
+{
+  "name": "raise-hackathon",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "extension"
+  ],
+  "scripts": {
+    "dev:demo": "npm run dev -w apps/demo-saas",
+    "dev:web": "npm run dev -w apps/web",
+    "build:packages": "npm run build -w scanner && npm run build -w patcher",
+    "driftguard:scan": "node packages/scanner/dist/index.js",
+    "driftguard:patch": "node packages/patcher/dist/index.js generate",
+    "driftguard:fix": "node packages/patcher/dist/index.js apply",
+    "driftguard:reset": "node packages/patcher/dist/index.js reset"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

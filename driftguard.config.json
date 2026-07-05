@@ -1,0 +1,11 @@
+{
+  "target": "apps/demo-saas",
+  "sourceDir": "src",
+  "rulesDir": ".driftguard/rules",
+  "incidentsDir": ".driftguard/incidents",
+  "backupsDir": ".driftguard/backups",
+  "tokensFile": "tokens.json",
+  "findingsFile": "findings.json",
+  "extensions": [".ts", ".tsx"],
+  "ignoreDirs": ["node_modules", ".next", "dist", ".driftguard"]
+}

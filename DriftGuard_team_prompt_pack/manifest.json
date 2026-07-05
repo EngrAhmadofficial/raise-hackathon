@@ -1,0 +1,21 @@
+{
+  "project": "DriftGuard",
+  "description": "Team prompt and implementation guide pack for hackathon build",
+  "folders": [
+    "00_shared",
+    "01_person_1_demo_app",
+    "02_person_2_scanner_rules",
+    "03_person_3_patcher_ai",
+    "04_person_4_report_ui",
+    "05_person_5_cursor_demo",
+    "06_optional_person_graph_owner",
+    "templates"
+  ],
+  "core_demo_flow": "Cursor changes UI -> scan -> detect drift -> explain -> patch -> apply -> incident memory",
+  "scope_lock": [
+    "no auth",
+    "no Supabase",
+    "no cloud sync",
+    "no real-time save blocking until core works"
+  ]
+}

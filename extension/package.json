@@ -1,0 +1,49 @@
+{
+  "name": "driftguard-extension",
+  "displayName": "DriftGuard",
+  "description": "Cursor-native design system drift auditor and auto-patcher.",
+  "version": "1.0.0",
+  "publisher": "driftguard",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "driftguard.scanWorkspace",
+        "title": "DriftGuard: Scan Workspace"
+      },
+      {
+        "command": "driftguard.openReport",
+        "title": "DriftGuard: Open Report"
+      },
+      {
+        "command": "driftguard.generatePatch",
+        "title": "DriftGuard: Generate Patch"
+      },
+      {
+        "command": "driftguard.applyFix",
+        "title": "DriftGuard: Apply Fix"
+      },
+      {
+        "command": "driftguard.resetDrift",
+        "title": "DriftGuard: Reset / Reintroduce Drift"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^20.0.0"
+  }
+}

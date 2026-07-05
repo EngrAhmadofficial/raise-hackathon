@@ -1,0 +1,206 @@
+[
+  {
+    "id": "button-standard--apps-demo-saas-src-app-billing-page",
+    "ruleId": "button-standard",
+    "title": "Button Standard: raw <button> element",
+    "file": "apps/demo-saas/src/app/billing/page.tsx",
+    "component": "BillingPage",
+    "driftType": "component_misuse",
+    "severity": "high",
+    "evidence": "L73: <button\nL76: <button\nL186: <button",
+    "occurrences": [
+      {
+        "line": 73,
+        "column": 13,
+        "match": "<button",
+        "lineText": "<button className=\"p-1.5 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-900 transition-all\">",
+        "suggestion": "<Button variant=\"primary\" size=\"md\">"
+      },
+      {
+        "line": 76,
+        "column": 13,
+        "match": "<button",
+        "lineText": "<button className=\"p-1.5 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-900 transition-all\">",
+        "suggestion": "<Button variant=\"primary\" size=\"md\">"
+      },
+      {
+        "line": 186,
+        "column": 17,
+        "match": "<button",
+        "lineText": "<button className=\"mt-4 bg-[#2563eb] text-white px-[18px] py-[9px] rounded-[10px] text-[15px] font-medium shadow-sm\">",
+        "suggestion": "<Button variant=\"primary\" size=\"md\">"
+      }
+    ],
+    "tokenExpected": "<Button variant=\"primary\" size=\"md\">",
+    "actualValue": "<button",
+    "reasoning": "Detected 3 occurrence(s) of raw <button> element in apps/demo-saas/src/app/billing/page.tsx (<button), violating the \"Button Standard\" rule. All product CTAs must use `src/components/ui/Button.tsx`.",
+    "suggestedFix": "Replace with design-system tokens: <button -> <Button variant=\"primary\" size=\"md\">.",
+    "confidence": 0.92
+  },
+  {
+    "id": "color-tokens--apps-demo-saas-src-app-billing-page",
+    "ruleId": "color-tokens",
+    "title": "Color Tokens: hardcoded hex color",
+    "file": "apps/demo-saas/src/app/billing/page.tsx",
+    "component": "BillingPage",
+    "driftType": "token_mismatch",
+    "severity": "high",
+    "evidence": "L20: bg-[#030712]\nL176: bg-[#101a31]\nL176: border-[#1c2a44]\nL186: bg-[#2563eb]",
+    "occurrences": [
+      {
+        "line": 20,
+        "column": 35,
+        "match": "bg-[#030712]",
+        "lineText": "<div className=\"flex h-screen bg-[#030712] text-slate-200\">",
+        "suggestion": "bg-slate-950"
+      },
+      {
+        "line": 176,
+        "column": 55,
+        "match": "bg-[#101a31]",
+        "lineText": "<div className=\"p-[19px] rounded-[11px] bg-[#101a31] border border-[#1c2a44]\">",
+        "suggestion": "bg-brand-surface"
+      },
+      {
+        "line": 176,
+        "column": 75,
+        "match": "border-[#1c2a44]",
+        "lineText": "<div className=\"p-[19px] rounded-[11px] bg-[#101a31] border border-[#1c2a44]\">",
+        "suggestion": "border-slate-800"
+      },
+      {
+        "line": 186,
+        "column": 41,
+        "match": "bg-[#2563eb]",
+        "lineText": "<button className=\"mt-4 bg-[#2563eb] text-white px-[18px] py-[9px] rounded-[10px] text-[15px] font-medium shadow-sm\">",
+        "suggestion": "bg-brand-primary"
+      }
+    ],
+    "tokenExpected": "bg-slate-950, bg-brand-surface, border-slate-800, bg-brand-primary",
+    "actualValue": "bg-[#030712], bg-[#101a31], border-[#1c2a44], bg-[#2563eb]",
+    "reasoning": "Detected 4 occurrence(s) of hardcoded hex color in apps/demo-saas/src/app/billing/page.tsx (bg-[#030712], bg-[#101a31], border-[#1c2a44], bg-[#2563eb]), violating the \"Color Tokens\" rule. Do not use hardcoded hex colors in JSX `className` strings.",
+    "suggestedFix": "Replace with design-system tokens: bg-[#030712] -> bg-slate-950; bg-[#101a31] -> bg-brand-surface; border-[#1c2a44] -> border-slate-800; bg-[#2563eb] -> bg-brand-primary.",
+    "confidence": 0.97
+  },
+  {
+    "id": "radius-scale--apps-demo-saas-src-app-billing-page",
+    "ruleId": "radius-scale",
+    "title": "Radius Scale: arbitrary border radius",
+    "file": "apps/demo-saas/src/app/billing/page.tsx",
+    "component": "BillingPage",
+    "driftType": "spacing_drift",
+    "severity": "medium",
+    "evidence": "L176: rounded-[11px]\nL186: rounded-[10px]",
+    "occurrences": [
+      {
+        "line": 176,
+        "column": 40,
+        "match": "rounded-[11px]",
+        "lineText": "<div className=\"p-[19px] rounded-[11px] bg-[#101a31] border border-[#1c2a44]\">",
+        "suggestion": "rounded-lg"
+      },
+      {
+        "line": 186,
+        "column": 84,
+        "match": "rounded-[10px]",
+        "lineText": "<button className=\"mt-4 bg-[#2563eb] text-white px-[18px] py-[9px] rounded-[10px] text-[15px] font-medium shadow-sm\">",
+        "suggestion": "rounded-md"
+      }
+    ],
+    "tokenExpected": "rounded-lg, rounded-md",
+    "actualValue": "rounded-[11px], rounded-[10px]",
+    "reasoning": "Detected 2 occurrence(s) of arbitrary border radius in apps/demo-saas/src/app/billing/page.tsx (rounded-[11px], rounded-[10px]), violating the \"Radius Scale\" rule. Do not use arbitrary radius values such as `rounded-[11px]`.",
+    "suggestedFix": "Replace with design-system tokens: rounded-[11px] -> rounded-lg; rounded-[10px] -> rounded-md.",
+    "confidence": 0.95
+  },
+  {
+    "id": "spacing-scale--apps-demo-saas-src-app-billing-page",
+    "ruleId": "spacing-scale",
+    "title": "Spacing Scale: arbitrary spacing value",
+    "file": "apps/demo-saas/src/app/billing/page.tsx",
+    "component": "BillingPage",
+    "driftType": "spacing_drift",
+    "severity": "medium",
+    "evidence": "L176: p-[19px]\nL186: px-[18px]\nL186: py-[9px]",
+    "occurrences": [
+      {
+        "line": 176,
+        "column": 31,
+        "match": "p-[19px]",
+        "lineText": "<div className=\"p-[19px] rounded-[11px] bg-[#101a31] border border-[#1c2a44]\">",
+        "suggestion": "p-5"
+      },
+      {
+        "line": 186,
+        "column": 65,
+        "match": "px-[18px]",
+        "lineText": "<button className=\"mt-4 bg-[#2563eb] text-white px-[18px] py-[9px] rounded-[10px] text-[15px] font-medium shadow-sm\">",
+        "suggestion": "px-4"
+      },
+      {
+        "line": 186,
+        "column": 75,
+        "match": "py-[9px]",
+        "lineText": "<button className=\"mt-4 bg-[#2563eb] text-white px-[18px] py-[9px] rounded-[10px] text-[15px] font-medium shadow-sm\">",
+        "suggestion": "py-2"
+      }
+    ],
+    "tokenExpected": "p-5, px-4, py-2",
+    "actualValue": "p-[19px], px-[18px], py-[9px]",
+    "reasoning": "Detected 3 occurrence(s) of arbitrary spacing value in apps/demo-saas/src/app/billing/page.tsx (p-[19px], px-[18px], py-[9px]), violating the \"Spacing Scale\" rule. Do not use arbitrary Tailwind spacing values such as `p-[19px]`, `px-[18px]`, or `py-[9px]` in product UI.",
+    "suggestedFix": "Replace with design-system tokens: p-[19px] -> p-5; px-[18px] -> px-4; py-[9px] -> py-2.",
+    "confidence": 0.95
+  },
+  {
+    "id": "typography-scale--apps-demo-saas-src-app-billing-page",
+    "ruleId": "typography-scale",
+    "title": "Typography Scale: arbitrary font size",
+    "file": "apps/demo-saas/src/app/billing/page.tsx",
+    "component": "BillingPage",
+    "driftType": "typography_drift",
+    "severity": "medium",
+    "evidence": "L136: text-[10px]\nL137: text-[10px]\nL138: text-[10px]\nL178: text-[15px]\nL186: text-[15px]",
+    "occurrences": [
+      {
+        "line": 136,
+        "column": 127,
+        "match": "text-[10px]",
+        "lineText": "<div className=\"h-6 w-6 rounded-full bg-indigo-900 border border-slate-900 flex items-center justify-center text-[10px] font-bold text-indigo-200\">AB</div>",
+        "suggestion": "text-xs"
+      },
+      {
+        "line": 137,
+        "column": 128,
+        "match": "text-[10px]",
+        "lineText": "<div className=\"h-6 w-6 rounded-full bg-emerald-900 border border-slate-900 flex items-center justify-center text-[10px] font-bold text-emerald-200\">CD</div>",
+        "suggestion": "text-xs"
+      },
+      {
+        "line": 138,
+        "column": 126,
+        "match": "text-[10px]",
+        "lineText": "<div className=\"h-6 w-6 rounded-full bg-slate-800 border border-slate-900 flex items-center justify-center text-[10px] font-bold text-slate-200\">JD</div>",
+        "suggestion": "text-xs"
+      },
+      {
+        "line": 178,
+        "column": 33,
+        "match": "text-[15px]",
+        "lineText": "<p className=\"text-[15px] font-medium text-white\">",
+        "suggestion": "text-sm"
+      },
+      {
+        "line": 186,
+        "column": 99,
+        "match": "text-[15px]",
+        "lineText": "<button className=\"mt-4 bg-[#2563eb] text-white px-[18px] py-[9px] rounded-[10px] text-[15px] font-medium shadow-sm\">",
+        "suggestion": "text-sm"
+      }
+    ],
+    "tokenExpected": "text-xs, text-sm",
+    "actualValue": "text-[10px], text-[15px]",
+    "reasoning": "Detected 5 occurrence(s) of arbitrary font size in apps/demo-saas/src/app/billing/page.tsx (text-[10px], text-[15px]), violating the \"Typography Scale\" rule. Do not use arbitrary text sizes such as `text-[15px]`.",
+    "suggestedFix": "Replace with design-system tokens: text-[10px] -> text-xs; text-[15px] -> text-sm.",
+    "confidence": 0.95
+  }
+]
